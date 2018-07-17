@@ -1,0 +1,10 @@
+D:\Neha\VSSampleProjects\ContactManagement\Contact.Models\bin\Debug\Contact.Models.dll
+D:\Neha\VSSampleProjects\ContactManagement\Contact.Models\bin\Debug\Contact.Models.pdb
+D:\Neha\VSSampleProjects\ContactManagement\Contact.Models\obj\Debug\Contact.Models.csprojResolveAssemblyReference.cache
+D:\Neha\VSSampleProjects\ContactManagement\Contact.Models\obj\Debug\Contact.Models.dll
+D:\Neha\VSSampleProjects\ContactManagement\Contact.Models\obj\Debug\Contact.Models.pdb
+D:\Neha\ContactManagement\Contact.Models\bin\Debug\Contact.Models.dll
+D:\Neha\ContactManagement\Contact.Models\bin\Debug\Contact.Models.pdb
+D:\Neha\ContactManagement\Contact.Models\obj\Debug\Contact.Models.csprojResolveAssemblyReference.cache
+D:\Neha\ContactManagement\Contact.Models\obj\Debug\Contact.Models.dll
+D:\Neha\ContactManagement\Contact.Models\obj\Debug\Contact.Models.pdb
