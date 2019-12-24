@@ -12,7 +12,7 @@ namespace Contact.Models
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public string Phone { get; set; }
+        public long Phone { get; set; }
         public bool Status { get; set; }
         public DateTime Created_date { get; set; }
         public DateTime Updated_date { get; set; }

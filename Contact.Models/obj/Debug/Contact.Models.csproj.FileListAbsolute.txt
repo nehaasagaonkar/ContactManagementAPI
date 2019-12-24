@@ -8,3 +8,9 @@ D:\Neha\ContactManagement\Contact.Models\bin\Debug\Contact.Models.pdb
 D:\Neha\ContactManagement\Contact.Models\obj\Debug\Contact.Models.csprojResolveAssemblyReference.cache
 D:\Neha\ContactManagement\Contact.Models\obj\Debug\Contact.Models.dll
 D:\Neha\ContactManagement\Contact.Models\obj\Debug\Contact.Models.pdb
+C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Models\bin\Debug\Contact.Models.dll
+C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Models\bin\Debug\Contact.Models.pdb
+C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Models\obj\Debug\Contact.Models.csprojAssemblyReference.cache
+C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Models\obj\Debug\Contact.Models.csproj.CoreCompileInputs.cache
+C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Models\obj\Debug\Contact.Models.dll
+C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Models\obj\Debug\Contact.Models.pdb

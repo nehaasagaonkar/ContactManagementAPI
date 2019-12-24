@@ -14,7 +14,7 @@ namespace Contact.Business.Implementation
 {
     public class ContactBusiness : IContactBusiness
     {
-        public UserConfirmation Add(User userModel)
+        public UserConfirmation AddContact(User userModel)
         {
             try
             {
@@ -35,54 +35,59 @@ namespace Contact.Business.Implementation
             catch (Exception ex)
             {
                 LogException.Write("Exception occured in Business solution", ex);
-                return new UserConfirmation { StatusCode = HttpStatusCode.ServiceUnavailable, Message = ex.Message };
+                return new UserConfirmation { StatusCode = HttpStatusCode.InternalServerError, Message = ex.Message };
 
             }
-            return new UserConfirmation { StatusCode = HttpStatusCode.OK, Message = "Inserted successfully" };
+            return new UserConfirmation { StatusCode = HttpStatusCode.OK, Message = "Contact inserted successfully" };
         }
-        public UserConfirmation List()
+        public UserConfirmation ListContacts()
         {
-            UserConfirmation userConfirmation = new UserConfirmation();
-            ContactInformationEntities Contact_entity=new ContactInformationEntities();
+            UserConfirmation userConfirmation = new UserConfirmation();   
             try
             {
-                userConfirmation.ContactsList = new List<User>();
-                Mapper.CreateMap<ContactDetail, User>();
-                var result = Contact_entity.ContactDetails.Where(x => x.Status == true).ToList();
-                foreach (var temp in result)
+                using (var contactInformationEntities = new ContactInformationEntities())
                 {
-                    User user = Mapper.Map<ContactDetail, User>(temp);
-                    userConfirmation.ContactsList.Add(user);
+                    userConfirmation.ContactsList = new List<User>();
+                    Mapper.CreateMap<ContactDetail, User>();
+                    var result = contactInformationEntities.ContactDetails.Where(x => x.Status == true);
+                    foreach (var temp in result)
+                    {
+                        User user = Mapper.Map<ContactDetail, User>(temp);
+                        userConfirmation.ContactsList.Add(user);
+                    }
+                    userConfirmation.StatusCode = HttpStatusCode.OK;
+                    userConfirmation.Message = "Contact retrived Successfully";
+                    return userConfirmation;
                 }
-                userConfirmation.StatusCode = HttpStatusCode.OK;
-                userConfirmation.Message = "Retrived Successfully";
-                return userConfirmation;
             }
             catch (Exception ex)
             {
                 LogException.Write("Exception occured in Business solution", ex);
-                return new UserConfirmation { StatusCode = HttpStatusCode.ServiceUnavailable, Message = ex.Message };
+                return new UserConfirmation { StatusCode = HttpStatusCode.InternalServerError, Message = ex.Message };
             }
         }
-        public UserConfirmation Edit(User user)
+        public UserConfirmation EditContact(User user)
         {
-            ContactInformationEntities Contact_entity = new ContactInformationEntities();
             try
             {
-                var contact = Contact_entity.ContactDetails.SingleOrDefault(b => b.Id == user.Id);
-                if (contact != null)
+                using (var contactInformationEntities = new ContactInformationEntities())
                 {
-                    contact.FirstName = user.FirstName;
-                    contact.LastName = user.LastName;
-                    contact.Email = user.Email;
-                    contact.Phone = user.Phone;
-                    contact.Status = true;
-                    contact.Updated_date = DateTime.Now;
-                    Contact_entity.SaveChanges();
-                    return new UserConfirmation { StatusCode = HttpStatusCode.OK, Message = "Updated successfully" };
-                }
-                else {
-                    return new UserConfirmation { StatusCode = HttpStatusCode.NotFound, Message = "Record not found" };
+                    var contact = contactInformationEntities.ContactDetails.SingleOrDefault(b => b.Id == user.Id);
+                    if (contact != null)
+                    {
+                        contact.FirstName = user.FirstName;
+                        contact.LastName = user.LastName;
+                        contact.Email = user.Email;
+                        contact.Phone = user.Phone;
+                        contact.Status = true;
+                        contact.Updated_date = DateTime.Now;
+                        contactInformationEntities.SaveChanges();
+                        return new UserConfirmation { StatusCode = HttpStatusCode.OK, Message = "Updated successfully" };
+                    }
+                    else
+                    {
+                        return new UserConfirmation { StatusCode = HttpStatusCode.NotFound, Message = "Record not found" };
+                    }
                 }
             }
             catch (Exception ex)
@@ -90,28 +95,31 @@ namespace Contact.Business.Implementation
                 LogException.Write("Exception occured in Business solution", ex);
                 return new UserConfirmation
                 {
-                    StatusCode = HttpStatusCode.ServiceUnavailable,
+                    StatusCode = HttpStatusCode.InternalServerError,
                     Message = ex.Message
                 };
 
             }
 
         }
-        public UserConfirmation Edit(int id, bool status)
+        public UserConfirmation EditContact(int id, bool status)
         {
-            ContactInformationEntities Contact_entity = new ContactInformationEntities();
             try
             {
-                var contact = Contact_entity.ContactDetails.SingleOrDefault(b => b.Id == id);
-                if (contact != null)
+                using (var contactInformationEntities = new ContactInformationEntities())
                 {
-                    contact.Status = status;
-                    contact.Updated_date = DateTime.Now;
-                    Contact_entity.SaveChanges();
-                    return new UserConfirmation { StatusCode = HttpStatusCode.OK, Message = "Updated successfully" };
-                }
-                else {
-                    return new UserConfirmation { StatusCode = HttpStatusCode.NotFound, Message = "Record not found" };
+                    var contact = contactInformationEntities.ContactDetails.SingleOrDefault(b => b.Id == id);
+                    if (contact != null)
+                    {
+                        contact.Status = status;
+                        contact.Updated_date = DateTime.Now;
+                        contactInformationEntities.SaveChanges();
+                        return new UserConfirmation { StatusCode = HttpStatusCode.OK, Message = "Contact updated successfully" };
+                    }
+                    else
+                    {
+                        return new UserConfirmation { StatusCode = HttpStatusCode.NotFound, Message = "Contact not found" };
+                    }
                 }
             }
             catch (Exception ex)
@@ -119,7 +127,7 @@ namespace Contact.Business.Implementation
                 LogException.Write("Exception occured in Business solution", ex);
                 return new UserConfirmation
                 {
-                    StatusCode = HttpStatusCode.ServiceUnavailable,
+                    StatusCode = HttpStatusCode.InternalServerError,
                     Message = ex.Message
                 };
 

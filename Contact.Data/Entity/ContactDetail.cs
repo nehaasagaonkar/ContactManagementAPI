@@ -18,7 +18,7 @@ namespace Contact.Data.Entity
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Email { get; set; }
-        public string Phone { get; set; }
+        public Nullable<long> Phone { get; set; }
         public Nullable<bool> Status { get; set; }
         public Nullable<System.DateTime> Created_date { get; set; }
         public Nullable<System.DateTime> Updated_date { get; set; }

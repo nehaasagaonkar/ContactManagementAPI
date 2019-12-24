@@ -3,7 +3,7 @@
   <EntityContainerMapping StorageEntityContainer="ContactInformationModelStoreContainer" CdmEntityContainer="ContactInformationEntities">
     <EntitySetMapping Name="ContactDetails">
       <EntityTypeMapping TypeName="ContactInformationModel.ContactDetail">
-        <MappingFragment StoreEntitySet="ContactDetails">
+        <MappingFragment StoreEntitySet="ContactDetail">
           <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
           <ScalarProperty Name="Created_date" ColumnName="Created_date" />
           <ScalarProperty Name="Status" ColumnName="Status" />

@@ -8,10 +8,10 @@
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-    <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Phone" Type="Int64" />
     <Property Name="Status" Type="Boolean" />
     <Property Name="Created_date" Type="DateTime" Precision="3" />
     <Property Name="Updated_date" Type="DateTime" Precision="3" />

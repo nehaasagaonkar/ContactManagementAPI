@@ -5,21 +5,21 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ContactInformationModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="ContactDetails">
+        <EntityType Name="ContactDetail">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="FirstName" Type="nvarchar" MaxLength="30" />
-          <Property Name="LastName" Type="nvarchar" MaxLength="30" />
-          <Property Name="Email" Type="nvarchar" MaxLength="30" />
-          <Property Name="Phone" Type="char" MaxLength="10" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="20" />
+          <Property Name="Email" Type="nvarchar" MaxLength="20" />
+          <Property Name="Phone" Type="bigint" />
           <Property Name="Status" Type="bit" />
           <Property Name="Created_date" Type="datetime" />
           <Property Name="Updated_date" Type="datetime" />
         </EntityType>
         <EntityContainer Name="ContactInformationModelStoreContainer">
-          <EntitySet Name="ContactDetails" EntityType="Self.ContactDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactDetail" EntityType="Self.ContactDetail" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -33,10 +33,10 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FirstName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="LastName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Email" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
-          <Property Name="Phone" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="Int64" />
           <Property Name="Status" Type="Boolean" />
           <Property Name="Created_date" Type="DateTime" Precision="3" />
           <Property Name="Updated_date" Type="DateTime" Precision="3" />
@@ -49,7 +49,7 @@
         <EntityContainerMapping StorageEntityContainer="ContactInformationModelStoreContainer" CdmEntityContainer="ContactInformationEntities">
           <EntitySetMapping Name="ContactDetails">
             <EntityTypeMapping TypeName="ContactInformationModel.ContactDetail">
-              <MappingFragment StoreEntitySet="ContactDetails">
+              <MappingFragment StoreEntitySet="ContactDetail">
                 <ScalarProperty Name="Updated_date" ColumnName="Updated_date" />
                 <ScalarProperty Name="Created_date" ColumnName="Created_date" />
                 <ScalarProperty Name="Status" ColumnName="Status" />

@@ -18,3 +18,15 @@ D:\Neha\ContactManagement\Contact.Data\bin\Debug\EntityFramework.SqlServer.xml
 D:\Neha\ContactManagement\Contact.Data\obj\Debug\Contact.Data.csprojResolveAssemblyReference.cache
 D:\Neha\ContactManagement\Contact.Data\obj\Debug\Contact.Data.dll
 D:\Neha\ContactManagement\Contact.Data\obj\Debug\Contact.Data.pdb
+C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Data\bin\Debug\Contact.Data.dll.config
+C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Data\bin\Debug\Contact.Data.dll
+C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Data\bin\Debug\Contact.Data.pdb
+C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Data\bin\Debug\EntityFramework.dll
+C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Data\bin\Debug\EntityFramework.xml
+C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Data\obj\Debug\Contact.Data.csprojAssemblyReference.cache
+C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Data\obj\Debug\Contact.Data.csproj.CoreCompileInputs.cache
+C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Data\obj\Debug\Contact.Data.csproj.CopyComplete
+C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Data\obj\Debug\Contact.Data.dll
+C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Data\obj\Debug\Contact.Data.pdb
