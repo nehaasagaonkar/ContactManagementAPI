@@ -33,7 +33,6 @@ D:\Neha\ContactManagement\Contact.Business\obj\Debug\Contact.Business.pdb
 C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Business\bin\Debug\Contact.Business.dll
 C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Business\bin\Debug\Contact.Business.pdb
 C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Business\bin\Debug\AutoMapper.dll
-C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Business\bin\Debug\AutoMapper.Net4.dll
 C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Business\bin\Debug\Contact.Data.dll
 C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Business\bin\Debug\Contact.Models.dll
 C:\ProjectData\Assessment\Test\ContactManagementApi\Contact.Business\bin\Debug\EntityFramework.dll

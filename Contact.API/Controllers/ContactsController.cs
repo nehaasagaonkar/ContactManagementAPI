@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 using System.Web.Http;
 
 namespace Contact.API.Controllers
@@ -19,33 +20,32 @@ namespace Contact.API.Controllers
             this._contactBusiness = contactBusiness;
         }
         [HttpPost]
-        public HttpResponseMessage Post(User user)
+        public async Task<HttpResponseMessage> Post(User user)
         {
-            var model = _contactBusiness.AddContact(user);
+            var model = await _contactBusiness.AddContact(user);
             return Request.CreateResponse(model.StatusCode, model);
 
         }
 
         [AllowAnonymous]
         [HttpGet]
-        public HttpResponseMessage Get()
+        public async Task <HttpResponseMessage> Get()
         {
-            var model = _contactBusiness.ListContacts();
+            var model = await _contactBusiness.ListContacts();
             return Request.CreateResponse(model.StatusCode, model);
         }
 
         [HttpPatch]
-        public HttpResponseMessage Patch(User user)
+        public async Task<HttpResponseMessage> Patch(User user)
         {
-            var model = _contactBusiness.EditContact(user);
+            var model =await _contactBusiness.EditContact(user);
             return Request.CreateResponse(model.StatusCode, model);
         }
 
-        [HttpPatch]
-        [Route("EditStatus")]
-        public HttpResponseMessage Patch(int id, bool status)
+        [HttpDelete]
+        public async Task<HttpResponseMessage> Delete(int id, bool status)
         {
-            var model = _contactBusiness.EditContact(id, status);
+            var model =await _contactBusiness.DeleteContact(id, status);
             return Request.CreateResponse(model.StatusCode, model);
         }
     }

@@ -9,9 +9,9 @@ namespace Contact.Business.Contract
 {
     public interface IContactBusiness
     {
-        UserConfirmation AddContact(User user);
-        UserConfirmation ListContacts();
-        UserConfirmation EditContact(User user);
-        UserConfirmation EditContact(int id, bool status);
+        Task<UserConfirmation> AddContact(User user);
+        Task<UserConfirmation> ListContacts();
+        Task<UserConfirmation> EditContact(User user);
+        Task<UserConfirmation> DeleteContact(int id, bool status);
     }
 }

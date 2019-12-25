@@ -14,7 +14,7 @@ namespace Contact.Business.Implementation
 {
     public class ContactBusiness : IContactBusiness
     {
-        public UserConfirmation AddContact(User userModel)
+        public Task<UserConfirmation> AddContact(User userModel)
         {
             try
             {
@@ -35,12 +35,12 @@ namespace Contact.Business.Implementation
             catch (Exception ex)
             {
                 LogException.Write("Exception occured in Business solution", ex);
-                return new UserConfirmation { StatusCode = HttpStatusCode.InternalServerError, Message = ex.Message };
+                return Task.FromResult(new UserConfirmation { StatusCode = HttpStatusCode.InternalServerError, Message = ex.Message });
 
             }
-            return new UserConfirmation { StatusCode = HttpStatusCode.OK, Message = "Contact inserted successfully" };
+            return Task.FromResult(new UserConfirmation { StatusCode = HttpStatusCode.OK, Message = "Contact inserted successfully" });
         }
-        public UserConfirmation ListContacts()
+        public Task<UserConfirmation> ListContacts()
         {
             UserConfirmation userConfirmation = new UserConfirmation();   
             try
@@ -49,7 +49,7 @@ namespace Contact.Business.Implementation
                 {
                     userConfirmation.ContactsList = new List<User>();
                     Mapper.CreateMap<ContactDetail, User>();
-                    var result = contactInformationEntities.ContactDetails.Where(x => x.Status == true);
+                    var result =contactInformationEntities.ContactDetails.Where(x => x.Status == true);
                     foreach (var temp in result)
                     {
                         User user = Mapper.Map<ContactDetail, User>(temp);
@@ -57,16 +57,16 @@ namespace Contact.Business.Implementation
                     }
                     userConfirmation.StatusCode = HttpStatusCode.OK;
                     userConfirmation.Message = "Contact retrived Successfully";
-                    return userConfirmation;
+                    return Task.FromResult(userConfirmation);
                 }
             }
             catch (Exception ex)
             {
                 LogException.Write("Exception occured in Business solution", ex);
-                return new UserConfirmation { StatusCode = HttpStatusCode.InternalServerError, Message = ex.Message };
+                return Task.FromResult(new UserConfirmation { StatusCode = HttpStatusCode.InternalServerError, Message = ex.Message });
             }
         }
-        public UserConfirmation EditContact(User user)
+        public Task<UserConfirmation> EditContact(User user)
         {
             try
             {
@@ -82,27 +82,27 @@ namespace Contact.Business.Implementation
                         contact.Status = true;
                         contact.Updated_date = DateTime.Now;
                         contactInformationEntities.SaveChanges();
-                        return new UserConfirmation { StatusCode = HttpStatusCode.OK, Message = "Updated successfully" };
+                        return Task.FromResult(new UserConfirmation { StatusCode = HttpStatusCode.OK, Message = "Updated successfully" });
                     }
                     else
                     {
-                        return new UserConfirmation { StatusCode = HttpStatusCode.NotFound, Message = "Record not found" };
+                        return Task.FromResult(new UserConfirmation { StatusCode = HttpStatusCode.NotFound, Message = "Record not found" });
                     }
                 }
             }
             catch (Exception ex)
             {
                 LogException.Write("Exception occured in Business solution", ex);
-                return new UserConfirmation
+                return Task.FromResult(new UserConfirmation
                 {
                     StatusCode = HttpStatusCode.InternalServerError,
                     Message = ex.Message
-                };
+                });
 
             }
 
         }
-        public UserConfirmation EditContact(int id, bool status)
+        public Task<UserConfirmation> DeleteContact(int id, bool status)
         {
             try
             {
@@ -114,22 +114,22 @@ namespace Contact.Business.Implementation
                         contact.Status = status;
                         contact.Updated_date = DateTime.Now;
                         contactInformationEntities.SaveChanges();
-                        return new UserConfirmation { StatusCode = HttpStatusCode.OK, Message = "Contact updated successfully" };
+                        return Task.FromResult(new UserConfirmation { StatusCode = HttpStatusCode.OK, Message = "Contact updated successfully" });
                     }
                     else
                     {
-                        return new UserConfirmation { StatusCode = HttpStatusCode.NotFound, Message = "Contact not found" };
+                        return Task.FromResult(new UserConfirmation { StatusCode = HttpStatusCode.NotFound, Message = "Contact not found" });
                     }
                 }
             }
             catch (Exception ex)
             {
                 LogException.Write("Exception occured in Business solution", ex);
-                return new UserConfirmation
+                return Task.FromResult(new UserConfirmation
                 {
                     StatusCode = HttpStatusCode.InternalServerError,
                     Message = ex.Message
-                };
+                });
 
             }
         }
